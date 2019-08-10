@@ -1,9 +1,12 @@
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+var cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 const verifyToken = require('./middlewares/verifyToken.middleware');
+
+app.use(cors());
 
 // Configuración de las variables de entorno de un servidor remoto
 const PORT = process.env.PORT || 3000;
