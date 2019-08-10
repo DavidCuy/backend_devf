@@ -31,8 +31,12 @@ app.listen(PORT, () => {
     });
 });
 
+app.get('/', (req, resp) => {
+    resp.status(200).send('<h1>It works</h1>');
+});
+
 // Configuración de ruta padre
-app.get('/', verifyToken.verifyToken, (req, resp) => {
+app.get('/home', verifyToken.verifyToken, (req, resp) => {
     let params = req.body;
     let user = params.user;
     resp.status(200).json({
